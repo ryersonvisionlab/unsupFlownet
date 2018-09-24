@@ -8,7 +8,7 @@ from deconvLayerRelu import *
 from flowRefinementConcat import *
 from flowToRgb import *
 from flowTransformGrid import *
-from forwardDifferenceSingle import *
+from gradientFromGray import *
 from leakyRelu import *
 from rgbToGray import *
 from validPixelMask import *
