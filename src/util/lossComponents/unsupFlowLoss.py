@@ -38,12 +38,12 @@ def unsupFlowLoss(flow,flowB,frame0,frame1,validPixelMask,instanceParams):
 		# loss components
 		photo = photoLoss(flow,rgb0,rgb1,photoAlpha,photoBeta)
 		grad = gradLoss(flow,grad0,grad1,gradAlpha,gradBeta)
+		imgGrad = None
 		if lossComponents["boundaries"]:
-			smoothMasked = asymmetricSmoothLoss(flow,instanceParams,occMask,validPixelMask,grad0,boundaryAlpha)
-			smooth2ndMasked = smoothLoss2nd(flow,smooth2ndAlpha,smooth2ndBeta,validPixelMask,grad0,boundaryAlpha)
-		else:
-			smoothMasked = asymmetricSmoothLoss(flow,instanceParams,occMask,validPixelMask)
-			smooth2ndMasked = smoothLoss2nd(flow,smooth2ndAlpha,smooth2ndBeta,validPixelMask)
+			imgGrad = grad0
+
+		smoothMasked = asymmetricSmoothLoss(flow,instanceParams,occMask,validPixelMask,imgGrad,boundaryAlpha)
+		smooth2ndMasked = smoothLoss2nd(flow,smooth2ndAlpha,smooth2ndBeta,validPixelMask,imgGrad,boundaryAlpha)
 
 		# apply masking
 		photoMasked = photo * occInvalidMask
