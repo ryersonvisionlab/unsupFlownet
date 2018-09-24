@@ -1,0 +1,49 @@
+{
+  "lossComponents": {
+    "gradient": false, 
+    "boundaries": false, 
+    "smooth2nd": false, 
+    "backward": false
+  }, 
+  "weightDecay": 0.0, 
+  "photoParams": {
+    "scale": 360.0, 
+    "robustness": 0.53
+  }, 
+  "baseLR": 1e-05, 
+  "borderThicknessH": 0.1, 
+  "iterations": 500000, 
+  "borderThicknessW": 0.1, 
+  "snapFreq": 5000, 
+  "batchSize": 2, 
+  "smoothOccParams": {
+    "scale": 1.8, 
+    "robustness": 0.9
+  }, 
+  "weight2": 1.058333333, 
+  "instanceName": "combined_all", 
+  "flowScale": 20.0, 
+  "fbParams": {
+    "weight": 0.04
+  }, 
+  "resnet": false, 
+  "gradParams": {
+    "scale": 255.0, 
+    "robustness": 0.46, 
+    "weight": 6.408
+  }, 
+  "dataset": "kitti2012", 
+  "smooth2ndParams": {
+    "scale": 1.0, 
+    "robustness": 0.21, 
+    "weight": 0.53
+  }, 
+  "snapshotFreq": 10000, 
+  "smoothParams": {
+    "scale": 3.5, 
+    "robustness": 0.28, 
+    "weight": 0.64
+  }, 
+  "boundaryAlpha": 6.5, 
+  "printFreq": 50
+}
