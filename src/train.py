@@ -74,8 +74,6 @@ with sessionSetup(cmdArgs) as sess:
 	else:
 		sess.run(tf.initialize_all_variables())
 
-	coord = tf.train.Coordinator()
-	threads = tf.train.start_queue_runners(coord=coord)
 	trainingData.dataQueuer.start_queueing(sess)
 
 	#start summary writer

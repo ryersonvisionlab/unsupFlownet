@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import os
 import time
 import datetime
@@ -11,7 +9,7 @@ import json
 
 from util import *
 
-#--parse args
+# parse args
 argParser = argparse.ArgumentParser(description="runs validation and visualizations")
 argParser.add_argument("-f",dest="showFlow",action="store_true")
 argParser.add_argument("-e",dest="showError",action="store_true")
@@ -30,7 +28,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = str(cmdArgs.gpu)
 with open("hyperParams.json") as f:
 	instanceParams = json.load(f)
 
-#find latest snapshot
+# find latest snapshot
 snapshotFiles = os.listdir("snapshots")
 snapshotFiles = [filename for filename in snapshotFiles if filename[-11:] == ".ckpt.index"]
 snapshotFiles.sort()
@@ -49,7 +47,7 @@ else:
 if cmdArgs.use2015:
 	instanceParams["dataset"] = "kitti2015"
 
-#import data
+# import data
 if instanceParams["dataset"] == "kitti2012":
 	datasetRoot = "/home/jjyu/KITTI2012/"
 	frame0Path = datasetRoot+"datalists/valPath1.txt";
@@ -111,19 +109,16 @@ warped = flowWarp(testData.frame1["rgb"]+mean,flowFinal)
 # saver
 saver = tf.train.Saver()
 
-# config
+# config tensorflow
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
 config.allow_soft_placement = True
 
-# start
+# start testing
 epes = []
 
 with tf.Session(config=config) as sess:
 	saver.restore(sess,"snapshots/iter_"+str(iter).zfill(16)+".ckpt")
-
-	coord = tf.train.Coordinator()
-	threads = tf.train.start_queue_runners(coord=coord)
 
 	#run
 	lastPrint = time.time()
