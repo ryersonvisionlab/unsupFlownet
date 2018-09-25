@@ -32,7 +32,7 @@ It is recommended to train using an NVIDIA GPU with minimum 8GB of VRAM.
 ## Scripts and Modules
 [train.py](src/train.py): Script to train network  
 [test.py](src/test.py): Script for tested trained network, paths for datasets should be modified  
-[util/TrainingData.py](util/TrainingData.py): handles reading, queuing, and processing of data, paths for datasets should be modified here  
+[util/TrainingData.py](src/util/TrainingData.py): handles reading, queuing, and processing of data, paths for datasets should be modified here  
 [components](src/components): Helpers to build graph for network and losses  
 [util](src/util): Larger components such as the network, losses, etc.  
 [hyperparams.json](src/hyperparams.json): Contains all hyper-parameters, flags for different loss terms, and settings for training  
