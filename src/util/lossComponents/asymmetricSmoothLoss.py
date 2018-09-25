@@ -3,6 +3,9 @@ from components import *
 from smoothLoss import *
 
 def asymmetricSmoothLoss(flow,instanceParams,occMask,validPixelMask,img0Grad=None,boundaryAlpha=0):
+	"""
+	modifies gradients so that smoothness can only go from non-occluded to occluded areas
+	"""
 	with tf.variable_scope(None,default_name="asymmetricSmoothLoss"):
 		alpha = instanceParams["smoothParams"]["robustness"]
 		beta = instanceParams["smoothParams"]["scale"]

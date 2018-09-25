@@ -24,6 +24,9 @@ def smoothLossMaskCorrection(validMask):
 	return maskCor
 
 def smoothLoss(flow,alpha,beta,validPixelMask=None,img0Grad=None,boundaryAlpha=0):
+	"""
+	smoothness loss, includes boundaries if img0Grad != None
+	"""
 	kernel = tf.transpose(tf.constant([\
 		[ \
 			[ \

@@ -27,6 +27,9 @@ def smoothLoss2ndMaskCorrection(validMask):
 	return maskCor
 
 def smoothLoss2nd(flow,alpha,beta,validPixelMask=None,img0Grad=None,boundaryAlpha=0):
+	"""
+	same as smoothLoss but second order
+	"""
 	kernel = tf.transpose(tf.constant([\
 		[ \
 			[ \
