@@ -3,7 +3,8 @@
     "gradient": false, 
     "boundaries": false, 
     "smooth2nd": false, 
-    "backward": false
+    "backward": false,
+    "asymmetricSmooth": true
   }, 
   "weightDecay": 0.0, 
   "photoParams": {
