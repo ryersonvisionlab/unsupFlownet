@@ -49,13 +49,13 @@ if cmdArgs.use2015:
 
 # import data
 if instanceParams["dataset"] == "kitti2012":
-	datasetRoot = "/home/jjyu/KITTI2012/"
+	datasetRoot = "../example_data/"
 	frame0Path = datasetRoot+"datalists/valPath1.txt";
 	frame1Path = datasetRoot+"datalists/valPath2.txt";
 	if cmdArgs.testAll:
-		flowPath = datasetRoot+"valPathFloAll.txt";
+		flowPath = datasetRoot+"datalists/valPathFloAll.txt";
 	else:
-		flowPath = datasetRoot+"valPathFlo.txt";
+		flowPath = datasetRoot+"datalists/valPathFlo.txt";
 	desiredHeight = 384
 	desiredWidth = 1280
 elif instanceParams["dataset"] == "kitti2015":
@@ -80,13 +80,13 @@ else:
 	exit()
 
 with open(frame0Path) as f:
-	imagePairs0 = [x[:-1] for x in f.readlines()]
+	imagePairs0 = [datasetRoot+x[:-1] for x in f.readlines()]
 
 with open(frame1Path) as f:
-	imagePairs1 = [x[:-1] for x in f.readlines()]
+	imagePairs1 = [datasetRoot+x[:-1] for x in f.readlines()]
 
 with open(flowPath) as f:
-	imageFlows = [x[:-1] for x in f.readlines()]
+	imageFlows = [datasetRoot+x[:-1] for x in f.readlines()]
 
 iterations = len(imageFlows)
 testData = TestData(imagePairs0,imagePairs1,imageFlows,1,desiredHeight,desiredWidth)

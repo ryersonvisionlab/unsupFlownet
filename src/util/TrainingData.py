@@ -11,7 +11,7 @@ class TrainingData:
 			borderThicknessH = instanceParams["borderThicknessH"]
 			borderThicknessW = instanceParams["borderThicknessW"]
 			if instanceParams["dataset"] == "kitti2012" or instanceParams["dataset"] == "kitti2015":
-				datasetRoot = "/home/jjyu/KITTI2012/"
+				datasetRoot = "../example_data/"
 				frame0Path = datasetRoot+"datalists/train_im0.txt"
 				frame1Path = datasetRoot+"datalists/train_im1.txt"
 				desiredHeight = 320
