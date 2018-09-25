@@ -15,6 +15,10 @@ Authors: [Jason J. Yu](http://scs.ryerson.ca/~jjyu/), [Adam W. Harley](https://w
 
 ## Description
 The code provided has been improved beyond what was described in the original paper. The original work focused on only a loss based on photometric constancy and motion smoothness. This can be achieved by disabling additional loss terms in the hyper-parameter file. This code has only been tested on python 2.7 and TensorFlow 1.8.0.
+
+## Benchmarks
+Coming soon!
+
 ## Usage
 ### Hardware
 It is recommended to train using an NVIDIA GPU with minimum 8GB of VRAM.
