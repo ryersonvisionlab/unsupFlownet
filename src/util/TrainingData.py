@@ -1,10 +1,11 @@
-#!/usr/bin/python
-
 import tensorflow as tf
 from components import *
 import data_input
 
 class TrainingData:
+	"""
+	handles queuing and preprocessing prior to and after batching
+	"""
 	def __init__(self,batchSize,instanceParams,shuffle=True):
 		with tf.variable_scope(None,default_name="ImagePairData"):
 			borderThicknessH = instanceParams["borderThicknessH"]

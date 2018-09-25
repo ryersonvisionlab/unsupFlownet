@@ -120,7 +120,7 @@ epes = []
 with tf.Session(config=config) as sess:
 	saver.restore(sess,"snapshots/iter_"+str(iter).zfill(16)+".ckpt")
 
-	#run
+	# run
 	lastPrint = time.time()
 	for i in range(iterations):
 		feed_dict = {

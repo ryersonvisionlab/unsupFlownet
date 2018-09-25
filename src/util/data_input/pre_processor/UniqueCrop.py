@@ -18,7 +18,7 @@ class UniqueCrop(DataPreProcessor):
 
 	def attach_graph(self,data_in):
 		with tf.variable_scope(None,default_name="unique_crop"):
-			#get crop range
+			# get crop range
 			dataShape = tf.shape(data_in)
 			h = dataShape[0]
 			w = dataShape[1]
@@ -26,7 +26,7 @@ class UniqueCrop(DataPreProcessor):
 			max_h_offset = h - self.h
 			max_w_offset = w - self.w
 
-			#generate crop, unifrom
+			# generate crop, unifrom
 			rand_h = tf.random_uniform([],0,max_h_offset,dtype=tf.int32)
 			rand_w = tf.random_uniform([],0,max_w_offset,dtype=tf.int32)
 

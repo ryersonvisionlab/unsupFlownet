@@ -1,11 +1,8 @@
-#!/usr/bin/python
-
 import tensorflow as tf
 import numpy as np
 import threading
 from scipy import misc
 from random import randint
-#from components import *
 import itertools
 import pre_processor
 
@@ -21,7 +18,7 @@ class DataQueuer(object):
 		self.data_readers = data_readers
 
 		with tf.variable_scope(None,default_name="queuer"):
-			#ensure all readers have the same number of data
+			# ensure all readers have the same number of data
 			self.n_data = data_readers[0].n_data
 			self.next_data = 0
 			for reader in data_readers:
@@ -29,15 +26,15 @@ class DataQueuer(object):
 
 			assert len(data_readers) == len(pre_processors), "number of pre_processor sets not equal number of data readers"
 
-			#thread lock
+			# thread lock
 			self.lock = threading.Lock()
 
-			#get outputs from readers
+			# get outputs from readers
 			data_outputs = []
 			data_shapes = []
 			data_types = []
 			for it,reader in enumerate(data_readers):
-				#pass reader through proprocessor
+				# pass reader through proprocessor
 				processorList = pre_processors[it]
 
 				curDataSource = reader.data_out
@@ -56,10 +53,6 @@ class DataQueuer(object):
 			self.enqueue_op = self.queue.enqueue(data_outputs)
 
 	def close(self,sess):
-		"""
-		Args:
-		Returns:
-		"""
 		close_op = self.queue.close(cancel_pending_enqueues=True)
 		sess.run(close_op)
 		for thread in self.threads:

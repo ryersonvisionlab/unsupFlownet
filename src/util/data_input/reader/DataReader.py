@@ -12,13 +12,13 @@ class DataReader(object):
 		self.dataset_root = dataset_root
 		self.data_list_path = data_list_path
 
-		#read in image list
+		# read in image list
 		with open(data_list_path) as f:
 			self.data_list_path = [x[:-1] for x in f.readlines()]
 
 		self.n_data = len(self.data_list_path)
 
-		#defaults that are expected
+		# defaults that are expected
 		self.data_out = None
 		self.data_type = None
 		self.data_shape = None

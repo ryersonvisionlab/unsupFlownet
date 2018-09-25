@@ -1,5 +1,3 @@
-# invalid pixels are set to 0
-
 import tensorflow as tf
 from flowTransformGrid import *
 

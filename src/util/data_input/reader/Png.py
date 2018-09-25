@@ -8,11 +8,11 @@ class Png(DataReader):
 		with tf.variable_scope(None,default_name="image_data_reader"):
 			DataReader.__init__(self,dataset_root,data_list_path)
 
-			#graph setup
+			# graph setup
 			img_path = tf.placeholder(dtype=tf.string)
 			img = tf.image.decode_png(tf.read_file(img_path), channels=channels, dtype=dtype)
 
-			#expose tensors
+			# expose tensors
 			self.data_path = img_path
 			self.data_out = img
 			self.data_type = dtype

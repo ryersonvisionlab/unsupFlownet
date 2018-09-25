@@ -1,9 +1,11 @@
-#!/usr/bin/python
-
 import tensorflow as tf
 from components import *
 
 class NetworkBody:
+	"""
+	Sets up layers to process 1 image pair
+	Use variable scopes to share weights
+	"""
 	def __init__(self,trainingData,instanceParams,flipInput=False):
 		frame0 = trainingData.frame0["rgb"]
 		frame1 = trainingData.frame1["rgb"]
@@ -18,7 +20,7 @@ class NetworkBody:
 		self.buildNetwork(combined,resnet=self.resnet)
 
 	def buildNetwork(self,inputs,resnet):
-		#contractive
+		# contractive
 		conv = convLayerRelu(inputs,7,64,2)
 
 		if resnet:

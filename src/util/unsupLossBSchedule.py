@@ -1,5 +1,8 @@
 
 def unsupLossBSchedule(iteration):
+	"""
+	Schedule for weighting loss between forward and backward loss
+	"""
 	if iteration > 400000:
 		return 0.5
 	elif iteration > 300000:

@@ -1,9 +1,7 @@
-#!/usr/bin/python
-
 import tensorflow as tf
 from components import *
 
-#should move this to hyper params
+# should move this to hyper params
 momentum1 = 0.9
 momentum2 = 0.999
 

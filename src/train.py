@@ -21,7 +21,7 @@ cmdArgs = argParser.parse_args()
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = str(cmdArgs.gpu)
 
-#load instance params, set instance path for logs and snapshots
+# load instance params, set instance path for logs and snapshots
 with open("hyperParams.json") as f:
 	instanceParams = json.load(f)
 logPath = "logs/"

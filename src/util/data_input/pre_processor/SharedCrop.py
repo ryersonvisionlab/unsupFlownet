@@ -19,20 +19,17 @@ class SharedCrop(DataPreProcessor):
 		ref_shape = tf.shape(ref_data)
 		self.in_h = ref_shape[0]
 		self.in_w = ref_shape[1]
-		#assert len(in_shape) == 2
-		#self.in_h = in_shape[0]
-		#self.in_w = in_shape[1]
 
 		#create shared offset values
 		with tf.variable_scope(None,default_name="random_crop_pos"):
 			max_h_offset = self.in_h - self.crop_h
 			max_w_offset = self.in_w - self.crop_w
 
-			#generate crop, unifrom
+			# generate crop, unifrom
 			rand_h = tf.random_uniform([],0,max_h_offset,dtype=tf.int32)
 			rand_w = tf.random_uniform([],0,max_w_offset,dtype=tf.int32)
 
-		#expose tensors
+		# expose tensors
 		self.rand_h = rand_h
 		self.rand_w = rand_w
 

@@ -1,6 +1,9 @@
 import os
 
 def checkResume(snapshotPath, logPath, cmdArgs):
+	"""
+	managed snapshots and training resuming
+	"""
 	snapshotFiles = os.listdir(snapshotPath)
 	snapshotFiles = [filename for filename in snapshotFiles if filename[-11:] == ".ckpt.index"]
 	snapshotFiles.sort()
@@ -14,7 +17,7 @@ def checkResume(snapshotPath, logPath, cmdArgs):
 		"if resume flag set, predetermine resume"
 		if cmdArgs.resume:
 			choice = "y"
- 
+
 		while choice != "y" and choice != "n":
 			print "Snapshot files detected ("+snapshotFiles[-1]+") would you like to resume? (y/n)"
 			print "Old snapshots and logs will be removed if not resuming!"

@@ -1,7 +1,8 @@
 from DataReader import *
 
 """
-maybe we should expose the valid pixel mask??
+Not used!
+use at your own risk!
 """
 
 class PngFlow(DataReader):
@@ -22,7 +23,7 @@ class PngFlow(DataReader):
 			w = flow_shape[1]
 
 			#convert flow
-			flow_scale = tf.cast([[[h,w]]],tf.float32)
+			flow_scale = tf.cast([[[w,h]]],tf.float32)
 			flow = ((2.0/(2**16-1))*flow_png) - 1
 			flow *= flow_scale
 			flow *= flow_mask_png

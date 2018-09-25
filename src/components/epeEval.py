@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import tensorflow as tf
 
 def epeEval(predicted,truth,mask):

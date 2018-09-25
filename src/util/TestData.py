@@ -1,9 +1,10 @@
-#!/usr/bin/python
-
 import tensorflow as tf
 from components import *
 
 class TestData:
+	"""
+	No queuing, pass through for processing from files
+	"""
 	def __init__(self,filenames0,filenames1,flowFilenames,batchSize,desiredHeight,desiredWidth):
 		with tf.variable_scope(None,default_name="ImagePairData"):
 			self.im0File = tf.placeholder(tf.string,[])
@@ -28,7 +29,7 @@ class TestData:
 			flowData = tf.cast(flowData,tf.float32)
 
 			#convert flow data
-			flowDataU = (tf.slice(flowData,[0,0,0],[-1,-1,1])-32768)/64
+			flowDataU = (tf.slice(flowData,[0,0,0],[-1,-1,1])-32768)/64 # kitti style flow storage
 			flowDataV = (tf.slice(flowData,[0,0,1],[-1,-1,1])-32768)/64
 			flowDataM = tf.slice(flowData,[0,0,2],[-1,-1,1])
 			flowData = tf.concat([flowDataU,flowDataV,flowDataM],2)

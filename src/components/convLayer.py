@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-def convLayer(x,kernelSize, outMaps, stride): #default caffe style MRSA
+def convLayer(x,kernelSize, outMaps, stride): # default caffe style MRSA
 	with tf.variable_scope(None,default_name="conv"):
 		inMaps = x.get_shape()[3]
 

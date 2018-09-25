@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import tensorflow as tf
 from components import *
 from lossComponents import *
