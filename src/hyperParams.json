@@ -21,12 +21,8 @@
     "scale": 1.8,
     "robustness": 0.9
   },
-  "weight2": 1.058333333,
   "instanceName": "unsupFlownet", 
   "flowScale": 20.0,
-  "fbParams": {
-    "weight": 0.04
-  },
   "resnet": false,
   "gradParams": {
     "scale": 255.0,
