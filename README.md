@@ -41,8 +41,8 @@ It is recommended to train using an NVIDIA GPU with minimum 8GB of VRAM.
 ## Example data lists
 [example_data](example_data): an example of how a dataset should be structured  
 [example_data/data](example_data/data): a single example image pair and its corresponding ground truth flow  
-[example_data/datalist](example_data/datalist): example datalists for the [data](example_data/data)  
-[example_data/datalist2](example_data/datalist2) example datalists used for training with KITTI  
+[example_data/datalists](example_data/datalists): example datalists for the [data](example_data/data)  
+[example_data/datalists2](example_data/datalists2) example datalists used for training with KITTI  
 
 ## Pre-trained Models
-[model_download_scripts](model_download_scripts) contains scripts for downloading pre-trained models along with their corresponding hyper-parameters. Currently there is only one model available trained with photometric and smoothness loss terms. Run these scripts from their respective directories e.g. [photometric_smoothness](photometric_smoothness).
+[model_download_scripts](model_download_scripts) contains scripts for downloading pre-trained models along with their corresponding hyper-parameters. Currently there is only one model available trained with photometric and smoothness loss terms. Run these scripts from their respective directories e.g. [photometric_smoothness](model_download_scripts/photometric_smoothness).
